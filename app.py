@@ -152,7 +152,7 @@ class Quiz:
     def display_title(self):
 
         # The title to be shown
-        title = Label(gui, text="GeeksforGeeks QUIZ",
+        title = Label(gui, text="Maskinær",
                       width=50, bg="gray25", fg="white", font=("ariel", 20, "bold"))
 
         # place of the title
@@ -195,10 +195,10 @@ class Quiz:
 gui = Tk()
 
 # set the size of the GUI Window
-gui.geometry("800x450")
+gui.geometry("1080x450")
 
 # set the title of the Window
-gui.title("GeeksforGeeks Quiz")
+gui.title("Maskinær programmering - Quiz")
 
 # get the data from the json file
 with open('data.json') as f:
