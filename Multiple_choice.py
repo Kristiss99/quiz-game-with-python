@@ -1,4 +1,5 @@
-#menu system for the game
+import tkinter as tk
+from tkinter import *
 
 def menu():
     print("Welcome to Multiple Choice Game")
