@@ -3,14 +3,14 @@
 def menu():
     print("Welcome to Multiple Choice Game")
     print("1. Start Game")
-    print("2. Exit Game")
     print("3. Make a new question")
     print("4. Delete a question")
+    print("q. Exit Game")
     choice = input("Enter your choice: ")
     if choice == "1":
         print("Starting Game..")
         play_game()
-    elif choice == "2":
+    elif choice == "q":
         print("Exiting Game...")
         exit()
     elif choice == "3":
@@ -76,11 +76,23 @@ def delete_question():
     print("Deleting a question...")
     fdev = open("questions.txt", "r")
     questions = fdev.readlines()
+    
     fdev.close()
     print("Questions: ")
+    index_val = 0
     for question in questions:
-        print(question)
-    question_number = int(input("Enter the question number to delete: "))
+        question = question.strip()
+        question = question.split(" ~ ")
+        index_val += 1
+        print(str(index_val) + '.', question[0])
+    try: 
+        question_number = int(input("Enter the question number to delete, or q to return to menu: "))
+        if question_number > len(questions):
+            print("Not a valid question number returning to menu")
+            menu()
+    except ValueError:
+        print("Invalid input returning to menu")
+        menu()
     questions.pop(question_number - 1)
     fdev = open("questions.txt", "w")
     fdev.writelines(questions)
